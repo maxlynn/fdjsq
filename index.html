@@ -1553,7 +1553,15 @@
 
   // ============ 翻译函数 ============
   function t(key) { var d = i18n[currentLanguage]; return d && d[key] !== undefined ? d[key] : key; }
-  function tFormat(key, val) { return t(key).replace('{0}', val); }
+  function tFormat(key, val) {
+    var str = t(key);
+    if (typeof val === 'object' && val.length !== undefined) {
+      for (var i = 0; i < val.length; i++) { str = str.replace('{' + i + '}', val[i]); }
+    } else {
+      str = str.replace('{0}', val);
+    }
+    return str;
+  }
 
   function applyLanguage() {
     var lang = currentLanguage;
