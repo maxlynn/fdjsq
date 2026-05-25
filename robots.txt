@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /20260519/
+Disallow: /docs/
+Disallow: /.claude/
+Disallow: /.agents/
+
+Sitemap: https://maxlynn.github.io/fdjsq/sitemap.xml
