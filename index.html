@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free online mortgage calculator supporting China, Hong Kong, US, Japan & Korea loan types — H-Plan, P-Plan, fixed/floating rates, Flat35, Jeonse loans, with equal installment & equal principal amortization schedules.">
+  <meta name="description" content="Free online mortgage calculator supporting China, Hong Kong (China), US, Japan & Korea loan types — H-Plan, P-Plan, fixed/floating rates, Flat35, Jeonse loans, with equal installment & equal principal amortization schedules.">
   <meta name="keywords" content="mortgage calculator,loan calculator,commercial loan,provident fund loan,combined loan,H-Plan,P-Plan,stress test,fixed rate,variable rate,Flat35,amortization,equal installment,equal principal,monthly payment">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='8' width='56' height='48' rx='6' fill='%2306d6d6'/%3E%3Crect x='8' y='14' width='48' height='10' rx='2' fill='%230a0a1a'/%3E%3Crect x='12' y='28' width='10' height='8' rx='2' fill='%23ff6b6b'/%3E%3Crect x='27' y='28' width='10' height='8' rx='2' fill='%234ecdc4'/%3E%3Crect x='42' y='28' width='10' height='8' rx='2' fill='%23a855f7'/%3E%3Crect x='12' y='40' width='10' height='8' rx='2' fill='%23ffd93d'/%3E%3Crect x='27' y='40' width='10' height='8' rx='2' fill='%2306d6d6'/%3E%3Crect x='42' y='40' width='10' height='8' rx='2' fill='%23ff6b6b'/%3E%3C/svg%3E">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8375832915749715" crossorigin="anonymous"></script>
   <link rel="canonical" href="https://maxlynn.github.io/fdjsq/">
-  <meta property="og:title" content="房贷计算器 — 支持中国大陆/香港/美国/日本/韩国在线计算">
+  <meta property="og:title" content="房贷计算器 — 支持中国大陆/中国香港/美国/日本/韩国在线计算">
   <meta property="og:description" content="免费在线房贷计算器，支持5地区贷款类型，含H按/P按/固定利率/Flat35/全租贷款，等额本息与等额本金，提供详细月供明细。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://maxlynn.github.io/fdjsq/">
   <meta property="og:image" content="https://maxlynn.github.io/fdjsq/og-image.png">
-  <title>房贷计算器 — 支持中国大陆/香港/美国/日本/韩国在线计算工具</title>
+  <title>房贷计算器 — 支持中国大陆/中国香港/美国/日本/韩国在线计算工具</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
@@ -754,7 +754,7 @@
 
         <!-- Region-specific input fields -->
         <div id="regionFields" class="hidden">
-          <!-- Hong Kong -->
+          <!-- Hong Kong, China -->
           <div id="field-propertyValue" class="form-group region-field hidden">
             <label for="propertyValue" class="form-label" data-i18n="label.propertyValue">物業價值</label>
             <div class="input-wrap">
@@ -1378,7 +1378,7 @@
     'zh-TW': {
       logo: '房貸計算器',
       'nav.calc': '開始計算', 'nav.schedule': '還款明細', 'nav.faq': '常見問題',
-      'intro.desc': '支援<strong>H按（拆息按揭）</strong>與<strong>P按（最優惠利率按揭）</strong>，附設<strong>壓力測試</strong>功能，助您評估香港按揭負擔能力。',
+      'intro.desc': '支援<strong>H按（拆息按揭）</strong>與<strong>P按（最優惠利率按揭）</strong>，附設<strong>壓力測試</strong>功能，助您評估中國香港按揭負擔能力。',
       'card.loanInfo': '貸款資訊', 'card.result': '計算結果',
       'label.loanType': '貸款類型', 'label.loanAmount': '貸款金額', 'label.annualRate': '年利率（%）',
       'label.loanYears': '貸款年限', 'label.repayMode': '還款方式',
@@ -1416,7 +1416,7 @@
       'faq.a1': 'H按利率與HIBOR掛鈎，息差較低但利率浮動；P按以最優惠利率為基準，利率相對穩定。H按通常設有封頂利率，當HIBOR上升時利率不會超過P按水平。',
       'faq.q2': '什麼是壓力測試？',
       'faq.a2': '銀行在審批按揭時，會假設利率上升2%來評估您的還款能力。月供（含壓力測試利率）不得超過月收入的50%。',
-      'faq.q3': '香港最高可借幾成按揭？',
+      'faq.q3': '中國香港最高可借幾成按揭？',
       'faq.a3': '自住物業最高可借7成（樓價1,000萬以下）至6成（1,000萬以上）。透過按揭保險計劃，最高可借8至9成，但須繳付按揭保費。',
       'faq.q4': '如何計算最高可貸金額？',
       'faq.a4': '最高可貸金額取決於物業價值、您的月收入及壓力測試結果。計算器會根據這些因素自動估算。',
@@ -1957,7 +1957,7 @@
     }
 
     // ============ Region-specific calculations ============
-    // Hong Kong stress test
+    // Hong Kong, China stress test
     if (cfg.stressTest) {
       var propertyValue = parseFloat(document.getElementById('propertyValue').value) * 10000 || 0;
       var monthlyIncome = parseFloat(document.getElementById('monthlyIncome').value) || 0;
