@@ -1,0 +1,1 @@
+Mortgage Calculator is a free, multi-region online tool designed to help you understand and plan your mortgage payments. Supporting 5 regions — China Mainland, Hong Kong, United States, Japan, and Korea — each with local loan types, regulations, and calculation methods. Whether you are a first-time homebuyer or refinancing, our calculator gives you clear, detailed projections.
