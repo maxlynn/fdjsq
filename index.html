@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="免费在线房贷计算器，支持中国大陆、香港、美国、日本、韩国五种贷款类型，含H按、P按、固定/浮动利率、Flat35、全租贷款等，提供等额本息与等额本金还款明细。">
-  <meta name="keywords" content="房贷计算器,贷款计算器,商业贷款,公积金贷款,组合贷款,H按,P按,压力测试,固定利率,変動金利,Flat35,住宅ローン,주택담보대출,전세자금대출,等额本息,等额本金,月供计算">
+  <meta name="description" content="Free online mortgage calculator supporting China, Hong Kong, US, Japan & Korea loan types — H-Plan, P-Plan, fixed/floating rates, Flat35, Jeonse loans, with equal installment & equal principal amortization schedules.">
+  <meta name="keywords" content="mortgage calculator,loan calculator,commercial loan,provident fund loan,combined loan,H-Plan,P-Plan,stress test,fixed rate,variable rate,Flat35,amortization,equal installment,equal principal,monthly payment">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='8' width='56' height='48' rx='6' fill='%2306d6d6'/%3E%3Crect x='8' y='14' width='48' height='10' rx='2' fill='%230a0a1a'/%3E%3Crect x='12' y='28' width='10' height='8' rx='2' fill='%23ff6b6b'/%3E%3Crect x='27' y='28' width='10' height='8' rx='2' fill='%234ecdc4'/%3E%3Crect x='42' y='28' width='10' height='8' rx='2' fill='%23a855f7'/%3E%3Crect x='12' y='40' width='10' height='8' rx='2' fill='%23ffd93d'/%3E%3Crect x='27' y='40' width='10' height='8' rx='2' fill='%2306d6d6'/%3E%3Crect x='42' y='40' width='10' height='8' rx='2' fill='%23ff6b6b'/%3E%3C/svg%3E">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8375832915749715" crossorigin="anonymous"></script>
@@ -435,18 +435,20 @@
     }
     .schedule-summary { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.75rem; }
     .table-wrapper {
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      overflow-x: auto; overflow-y: auto; -webkit-overflow-scrolling: touch;
+      max-height: 24rem;
       border: 1px solid var(--border-glow); border-radius: 0.6rem;
     }
-    .schedule-table { width: 100%; min-width: 600px; font-size: 0.8rem; text-align: left; border-collapse: collapse; }
-    .schedule-table thead { background: rgba(6,214,214,0.06); color: var(--text-secondary); text-transform: uppercase; font-size: 0.7rem; font-family: var(--font-tech); letter-spacing: 0.04em; }
+    .schedule-table { width: 100%; min-width: 600px; font-size: 0.8rem; text-align: left; border-collapse: separate; border-spacing: 0; }
+    .schedule-table thead { color: var(--text-secondary); text-transform: uppercase; font-size: 0.7rem; font-family: var(--font-tech); letter-spacing: 0.04em; }
+    .schedule-table thead th { position: sticky; top: 0; z-index: 2; background: var(--bg-deep); border-bottom: 2px solid var(--neon-cyan); box-shadow: 0 2px 8px rgba(6,214,214,0.35), 0 4px 16px rgba(0,0,0,0.5); }
     .schedule-table th { padding: 0.75rem 1rem; white-space: nowrap; text-align: right; }
     .schedule-table th:first-child { text-align: left; }
     .schedule-table td { padding: 0.6rem 1rem; white-space: nowrap; text-align: right; color: var(--text-primary); }
     .schedule-table td:first-child { text-align: left; color: var(--text-secondary); font-weight: 500; }
-    .schedule-table tbody tr { border-bottom: 1px solid rgba(6,214,214,0.08); transition: background 0.2s; }
-    .schedule-table tbody tr:nth-child(even) { background: rgba(6,214,214,0.02); }
-    .schedule-table tbody tr:hover { background: rgba(6,214,214,0.08); }
+    .schedule-table tbody tr td { border-bottom: 1px solid rgba(6,214,214,0.08); }
+    .schedule-table tbody tr:nth-child(even) td { background: rgba(6,214,214,0.02); }
+    .schedule-table tbody tr:hover td { background: rgba(6,214,214,0.08); }
     .empty-state { text-align: center; padding: 3rem 0; color: var(--text-muted); }
     .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .empty-state p { font-size: 0.8rem; }
@@ -543,6 +545,16 @@
     .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.75rem; }
     .footer-links a { color: var(--text-muted); transition: all 0.3s; }
     .footer-links a:hover { color: var(--neon-cyan); text-shadow: 0 0 8px rgba(6,214,214,0.5); }
+    .footer-stats { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid var(--border-glow); display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.25rem 0.75rem; font-size: 0.65rem; }
+    .stat-item { display: inline-flex; align-items: center; gap: 0.25rem; white-space: nowrap; }
+    .stat-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0; }
+    .stat-dot-cyan { background: var(--neon-cyan); box-shadow: 0 0 4px var(--neon-cyan); }
+    .stat-dot-yellow { background: #c8a014; box-shadow: 0 0 4px #c8a014; }
+    .stat-dot-green { background: #14c878; box-shadow: 0 0 4px #14c878; }
+    .stat-dot-pink { background: #e0558c; box-shadow: 0 0 4px #e0558c; }
+    .stat-label { color: var(--text-muted); }
+    .stat-val { color: var(--text-secondary); font-family: var(--font-tech); }
+    .stat-sep { color: var(--border-glow); }
 
     .hidden { display: none !important; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
@@ -1021,6 +1033,17 @@
   </nav>
   <p data-i18n="footer.disclaimer">本工具仅供参考，不构成任何贷款建议。实际贷款利率及月供以银行审批结果为准。</p>
   <p data-i18n-html="footer.copyright">&copy; <span id="currentYear"></span> 房贷计算器 — 免费在线商贷/公积金/组合贷款计算工具</p>
+  <div class="footer-stats" id="footerStats">
+    <span class="stat-item" title="累计访问次数"><span class="stat-dot"></span><span class="stat-label" data-i18n="stats.totalVisits">累计访问</span><span class="stat-val" id="statTotalVisits">--</span></span>
+    <span class="stat-sep">|</span>
+    <span class="stat-item" title="首次访问时间"><span class="stat-dot stat-dot-cyan"></span><span class="stat-label" data-i18n="stats.firstVisit">首次访问</span><span class="stat-val" id="statFirstVisit">--</span></span>
+    <span class="stat-sep">|</span>
+    <span class="stat-item" title="上次访问时间"><span class="stat-dot stat-dot-yellow"></span><span class="stat-label" data-i18n="stats.lastVisit">上次访问</span><span class="stat-val" id="statLastVisit">--</span></span>
+    <span class="stat-sep">|</span>
+    <span class="stat-item" title="今日页面浏览量"><span class="stat-dot stat-dot-green"></span><span class="stat-label" data-i18n="stats.todayViews">今日浏览</span><span class="stat-val" id="statTodayViews">--</span></span>
+    <span class="stat-sep">|</span>
+    <span class="stat-item" title="本次停留时长"><span class="stat-dot stat-dot-pink"></span><span class="stat-label" data-i18n="stats.elapsed">本次停留</span><span class="stat-val" id="statElapsed">--</span></span>
+  </div>
 </footer>
 
 <script data-cfasync="false">
@@ -1111,7 +1134,7 @@
   var currentRepayMode = 'equal-installment';
   var scheduleView = 'monthly';
   var lastResult = null;
-  var currentLanguage = 'zh-CN';
+  var currentLanguage = 'en';
 
   // ============ 地区配置 ============
   var regionConfigs = {
@@ -1339,6 +1362,12 @@
       'faq.a5': '本计算器提供的是理论计算结果，实际月供可能因银行计息方式（如按日计息、分段计息）及费用略有差异，最终以贷款合同为准。',
       'footer.disclaimer': '本工具仅供参考，不构成任何贷款建议。实际贷款利率及月供以银行审批结果为准。',
       'footer.copyright': '&copy; <span id="currentYear"></span> 房贷计算器 — 免费在线商贷/公积金/组合贷款计算工具',
+      'stats.totalVisits': '累计访问',
+      'stats.firstVisit': '首次访问',
+      'stats.lastVisit': '上次访问',
+      'stats.todayViews': '今日浏览',
+      'stats.elapsed': '本次停留',
+      'stats.times': '次',
       'alert.invalidYears': '请选择有效的贷款年限。',
       'alert.invalidInput': '请填写有效的贷款金额和利率。',
       'alert.rateTooHigh': '年利率超过36%，请确认输入是否正确。',
@@ -1395,6 +1424,12 @@
       'faq.a5': '本計算器提供理論估算，實際審批取決於銀行內部評估、信貸紀錄及市場狀況，最終以銀行審批結果為準。',
       'footer.disclaimer': '本工具僅供參考，不構成任何貸款建議。實際貸款利率及月供以銀行審批結果為準。',
       'footer.copyright': '&copy; <span id="currentYear"></span> 房貸計算器 — 免費線上商貸/公積金/組合貸款計算工具',
+      'stats.totalVisits': '累計訪問',
+      'stats.firstVisit': '首次訪問',
+      'stats.lastVisit': '上次訪問',
+      'stats.todayViews': '今日瀏覽',
+      'stats.elapsed': '本次停留',
+      'stats.times': '次',
       'alert.invalidYears': '請選擇有效的貸款年限。', 'alert.invalidInput': '請填寫有效的貸款金額和利率。',
       'alert.rateTooHigh': '年利率超過36%，請確認輸入是否正確。', 'alert.missingAmount': '請至少填寫一筆貸款金額。', 'alert.missingRate': '請填寫對應的貸款利率。',
       'langLabel': '繁'
@@ -1443,6 +1478,12 @@
       'faq.a5': 'This calculator provides estimates. Actual terms depend on your credit score and lender. Get a Loan Estimate from your lender.',
       'footer.disclaimer': 'For reference only, not loan advice. Actual rates subject to lender approval.',
       'footer.copyright': '&copy; <span id="currentYear"></span> Mortgage Calculator — Free Online Tool',
+      'stats.totalVisits': 'Total Visits',
+      'stats.firstVisit': 'First Visit',
+      'stats.lastVisit': 'Last Visit',
+      'stats.todayViews': 'Today',
+      'stats.elapsed': 'Session',
+      'stats.times': ' times',
       'alert.invalidYears': 'Please select a valid loan term.',
       'alert.invalidInput': 'Please enter valid loan amount and interest rate.',
       'alert.rateTooHigh': 'Interest rate exceeds 36%. Please verify.',
@@ -1490,6 +1531,12 @@
       'faq.a5': '本計算機は理論値での試算です。実際の返済額は金融機関の計算方法や手数料により若干異なる場合があります。',
       'footer.disclaimer': '本ツールは参考用であり、ローンに関する助言ではありません。',
       'footer.copyright': '&copy; <span id="currentYear"></span> 住宅ローン計算 — 無料オンラインツール',
+      'stats.totalVisits': '累計訪問',
+      'stats.firstVisit': '初回訪問',
+      'stats.lastVisit': '前回訪問',
+      'stats.todayViews': '本日',
+      'stats.elapsed': '滞在時間',
+      'stats.times': '回',
       'alert.invalidYears': '有効な返済期間を選択してください。',
       'alert.invalidInput': '有効な借入金額と金利を入力してください。',
       'alert.rateTooHigh': '金利が36%を超えています。入力を確認してください。',
@@ -1543,6 +1590,12 @@
       'faq.a5': '본 계산기는 이론적인 추정치를 제공합니다. 실제 대출 한도와 금리는 개인 신용도, 소득, 은행 심사 기준에 따라 달라질 수 있습니다.',
       'footer.disclaimer': '본 도구는 참고용이며 대출 조언이 아닙니다.',
       'footer.copyright': '&copy; <span id="currentYear"></span> 주택담보대출 계산기 — 무료 온라인 도구',
+      'stats.totalVisits': '총 방문',
+      'stats.firstVisit': '첫 방문',
+      'stats.lastVisit': '마지막 방문',
+      'stats.todayViews': '오늘',
+      'stats.elapsed': '체류 시간',
+      'stats.times': '회',
       'alert.invalidYears': '유효한 대출 기간을 선택해 주세요.',
       'alert.invalidInput': '유효한 대출 금액과 금리를 입력해 주세요.',
       'alert.rateTooHigh': '금리가 36%를 초과합니다. 입력을 확인해 주세요.',
@@ -2326,6 +2379,61 @@
     }
     return (value / 10000).toFixed(1) + (cfg.unitLabel || t('unit.wanShort'));
   }
+
+  // ============ 访问统计 ============
+  (function() {
+    var STORAGE_KEY = 'fdjsq_visitor_stats';
+    var now = Date.now();
+    var today = new Date().toDateString();
+    var stats = {};
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) stats = JSON.parse(raw);
+    } catch(e) { stats = {}; }
+
+    // 首次访问
+    if (!stats.firstVisit) stats.firstVisit = now;
+    // 累计访问
+    stats.totalVisits = (stats.totalVisits || 0) + 1;
+    // 上次访问（本次之前）
+    var prevLast = stats.lastVisit || now;
+    // 更新上次访问为现在
+    stats.lastVisit = now;
+    // 今日浏览（按日期归零）
+    if (stats.todayDate !== today) { stats.todayDate = today; stats.todayViews = 0; }
+    stats.todayViews = (stats.todayViews || 0) + 1;
+
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(stats)); } catch(e) {}
+
+    function fmtTime(ts) {
+      var d = new Date(ts);
+      var month = d.getMonth() + 1;
+      var day = d.getDate();
+      var h = d.getHours();
+      var m = d.getMinutes();
+      return month + '/' + day + ' ' + (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+    }
+
+    function fmtDuration(ms) {
+      if (ms < 60000) return Math.floor(ms / 1000) + 's';
+      if (ms < 3600000) return Math.floor(ms / 60000) + 'min ' + Math.floor((ms % 60000) / 1000) + 's';
+      return Math.floor(ms / 3600000) + 'h ' + Math.floor((ms % 3600000) / 60000) + 'min';
+    }
+
+    function updateDisplay() {
+      var elapsed = Date.now() - now;
+      var el;
+      var timesText = t('stats.times') || ' 次';
+      el = document.getElementById('statTotalVisits'); if (el) el.textContent = stats.totalVisits + timesText;
+      el = document.getElementById('statFirstVisit'); if (el) el.textContent = fmtTime(stats.firstVisit);
+      el = document.getElementById('statLastVisit'); if (el) el.textContent = fmtTime(prevLast);
+      el = document.getElementById('statTodayViews'); if (el) el.textContent = stats.todayViews + timesText;
+      el = document.getElementById('statElapsed'); if (el) el.textContent = fmtDuration(elapsed);
+    }
+
+    updateDisplay();
+    setInterval(updateDisplay, 10000);
+  })();
 </script>
 </body>
 </html>
